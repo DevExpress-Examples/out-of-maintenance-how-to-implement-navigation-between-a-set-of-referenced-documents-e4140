@@ -1,6 +1,4 @@
-Imports Microsoft.VisualBasic
-Imports System
-Namespace RichEditNavigation
+﻿Namespace RichEditNavigation
 	Partial Public Class Form1
 		''' <summary>
 		''' Required designer variable.
@@ -38,8 +36,10 @@ Namespace RichEditNavigation
 			Me.richEditControl1.Size = New System.Drawing.Size(1084, 404)
 			Me.richEditControl1.TabIndex = 0
 			Me.richEditControl1.Text = "richEditControl1"
-'			Me.richEditControl1.KeyDown += New System.Windows.Forms.KeyEventHandler(Me.richEditControl1_KeyDown);
-'			Me.richEditControl1.HyperlinkClick += New DevExpress.XtraRichEdit.HyperlinkClickEventHandler(Me.richEditControl1_HyperlinkClick);
+'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
+'ORIGINAL LINE: this.richEditControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richEditControl1_KeyDown);
+'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
+'ORIGINAL LINE: this.richEditControl1.HyperlinkClick += new DevExpress.XtraRichEdit.HyperlinkClickEventHandler(this.richEditControl1_HyperlinkClick);
 			' 
 			' btnBackward
 			' 
@@ -50,7 +50,8 @@ Namespace RichEditNavigation
 			Me.btnBackward.TabIndex = 1
 			Me.btnBackward.Text = "<"
 			Me.btnBackward.UseVisualStyleBackColor = True
-'			Me.btnBackward.Click += New System.EventHandler(Me.btnBackward_Click);
+'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
+'ORIGINAL LINE: this.btnBackward.Click += new System.EventHandler(this.btnBackward_Click);
 			' 
 			' btnForward
 			' 
@@ -61,7 +62,8 @@ Namespace RichEditNavigation
 			Me.btnForward.TabIndex = 2
 			Me.btnForward.Text = ">"
 			Me.btnForward.UseVisualStyleBackColor = True
-'			Me.btnForward.Click += New System.EventHandler(Me.btnForward_Click);
+'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
+'ORIGINAL LINE: this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
 			' 
 			' Form1
 			' 

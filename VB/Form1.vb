@@ -1,13 +1,14 @@
-Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.IO
 Imports System.Windows.Forms
 Imports System.Collections.Generic
 Imports DevExpress.XtraRichEdit
+Imports DevExpress.Portable.Input
 
 Namespace RichEditNavigation
 	Partial Public Class Form1
 		Inherits Form
+
 		Private basePath As String = "Documents"
 		Private startPage As String = "Index.html"
 		Private historyItems As New List(Of String)()
@@ -16,19 +17,16 @@ Namespace RichEditNavigation
 		Public Sub New()
 			InitializeComponent()
 			richEditControl1.ReadOnly = True
-			richEditControl1.Options.Hyperlinks.ModifierKeys = Keys.None
+			richEditControl1.Options.Hyperlinks.ModifierKeys = PortableKeys.None
 			NavigateTo(startPage, True)
 		End Sub
 
 		Private Sub richEditControl1_HyperlinkClick(ByVal sender As Object, ByVal e As HyperlinkClickEventArgs) Handles richEditControl1.HyperlinkClick
-			BeginInvoke(CType(Function() AnonymousMethod1(e), MethodInvoker))
+			BeginInvoke(CType(Sub()
+				NavigateTo(e.Hyperlink.NavigateUri, True)
+			End Sub, MethodInvoker))
 			e.Handled = True
 		End Sub
-		
-		Private Function AnonymousMethod1(ByVal e As HyperlinkClickEventArgs) As Boolean
-			NavigateTo(e.Hyperlink.NavigateUri, True)
-			Return True
-		End Function
 
 		Private Sub richEditControl1_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles richEditControl1.KeyDown
 			If currentHistoryItemIndex <> 0 AndAlso e.KeyCode = Keys.Back Then
@@ -37,12 +35,20 @@ Namespace RichEditNavigation
 		End Sub
 
 		Private Sub btnBackward_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnBackward.Click
+			If Not Me.btnBackward.IsHandleCreated Then Return
+
 			currentHistoryItemIndex -= 1
+'INSTANT VB WARNING: An assignment within expression was extracted from the following statement:
+'ORIGINAL LINE: NavigateTo(historyItems[--currentHistoryItemIndex], false);
 			NavigateTo(historyItems(currentHistoryItemIndex), False)
 		End Sub
 
 		Private Sub btnForward_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnForward.Click
+			If Not Me.btnForward.IsHandleCreated Then Return
+
 			currentHistoryItemIndex += 1
+'INSTANT VB WARNING: An assignment within expression was extracted from the following statement:
+'ORIGINAL LINE: NavigateTo(historyItems[++currentHistoryItemIndex], false);
 			NavigateTo(historyItems(currentHistoryItemIndex), False)
 		End Sub
 
