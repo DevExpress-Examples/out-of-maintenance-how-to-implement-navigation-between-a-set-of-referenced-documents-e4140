@@ -4,6 +4,7 @@ Imports System.IO
 Imports System.Windows.Forms
 Imports System.Collections.Generic
 Imports DevExpress.XtraRichEdit
+Imports DevExpress.Portable.Input
 
 Namespace RichEditNavigation
 	Partial Public Class Form1
@@ -16,7 +17,7 @@ Namespace RichEditNavigation
 		Public Sub New()
 			InitializeComponent()
 			richEditControl1.ReadOnly = True
-			richEditControl1.Options.Hyperlinks.ModifierKeys = Keys.None
+			richEditControl1.Options.Hyperlinks.ModifierKeys = PortableKeys.None
 			NavigateTo(startPage, True)
 		End Sub
 
