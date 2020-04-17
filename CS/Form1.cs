@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using DevExpress.XtraRichEdit;
+using DevExpress.Portable.Input;
 
 namespace RichEditNavigation {
     public partial class Form1 : Form {
@@ -14,7 +15,7 @@ namespace RichEditNavigation {
         public Form1() {
             InitializeComponent();
             richEditControl1.ReadOnly = true;
-            richEditControl1.Options.Hyperlinks.ModifierKeys = Keys.None;
+            richEditControl1.Options.Hyperlinks.ModifierKeys = PortableKeys.None;
             NavigateTo(startPage, true);
         }
 
