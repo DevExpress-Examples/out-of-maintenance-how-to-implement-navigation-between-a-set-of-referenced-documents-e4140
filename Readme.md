@@ -33,7 +33,7 @@
 ```
 
 <p>Note that the <a href="http://documentation.devexpress.com/#CoreLibraries/DevExpressXtraRichEditAPINativeHyperlink_NavigateUritopic"><u>Hyperlink.NavigateUri Property</u></a> is used to retrieve relative the location of a referenced document. This location is stored in the source document in the following form:<br />
-</p><para><code lang="html"><a href="AndrewFuller.html"><span class="csBB08E6F5">Andrew Fuller</span></a> 
+</p><para><code lang="html"><a href="./CS/Documents/AndrewFuller.html"><span class="csBB08E6F5">Andrew Fuller</span></a> 
 
 <br/>
 
